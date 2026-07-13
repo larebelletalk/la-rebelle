@@ -1,4 +1,37 @@
-export const products = [
+export type Product = {
+  id: string;
+  name: string;
+  images: string[];
+  status: "available" | "coming-soon";
+  description: string;
+
+  price?: number;
+  oldPrice?: number;
+  currency?: string;
+
+  details?: {
+    country: string;
+    material: string;
+    fabricWeight: string;
+    fit: string;
+    construction: string;
+    color: string;
+  };
+
+  care?: string[];
+
+  sizes?: Record<
+    string,
+    {
+      shoulder: number;
+      chest: number;
+      length: number;
+      sleeve: number;
+    }
+  >;
+};
+
+export const products: Product[] = [
   {
     id: "1",
 
@@ -83,6 +116,6 @@ export const products = [
     status: "coming-soon",
 
     description:
-  "A premium fitted black top featuring the exclusive 'Hot Girls Speak Moroccan' statement print. Designed for women who embrace confidence, comfort and individuality. Launching soon.",
+      "A premium fitted black top featuring the exclusive 'Hot Girls Speak Moroccan' statement print. Designed for women who embrace confidence, comfort and individuality. Launching soon.",
   },
 ];

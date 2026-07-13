@@ -1,21 +1,10 @@
 import Link from "next/link";
-
-type Product = {
-  id: string;
-  name: string;
-  images: string[];
-  status: "available" | "coming-soon";
-
-  price?: number;
-  oldPrice?: number;
-  currency?: string;
-};
+import type { Product } from "../data/products";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <Link href={`/products/${product.id}`}>
-
-      <div className="group cursor-pointer">
+    <Link href={`/products/${product.id}`} className="group block cursor-pointer">
+      <div>
 
         <div className="aspect-[4/5] bg-neutral-200 rounded-lg overflow-hidden">
 

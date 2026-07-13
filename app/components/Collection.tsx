@@ -1,121 +1,28 @@
-type Product = {
-  id: string;
-  name: string;
-  images: string[];
-  status: "available" | "coming-soon";
-  description: string;
+import ProductCard from "./ProductCard";
+import { products } from "../data/products";
 
-  price?: number;
-  oldPrice?: number;
-  currency?: string;
+export default function Collection() {
+  return (
+    <section
+      id="collection"
+      className="bg-[#0A0A0A] text-white py-24 px-6"
+    >
+      <div className="max-w-7xl mx-auto">
 
-  details?: {
-    country: string;
-    material: string;
-    fabricWeight: string;
-    fit: string;
-    construction: string;
-    color: string;
-  };
+        <h2 className="text-4xl md:text-5xl text-center mb-16 tracking-[0.2em]">
+          COLLECTION
+        </h2>
 
-  care?: string[];
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
+          ))}
+        </div>
 
-  sizes?: Record<
-    string,
-    {
-      shoulder: number;
-      chest: number;
-      length: number;
-      sleeve: number;
-    }
-  >;
-};
-
-export const products: Product[] = [
-  {
-    id: "1",
-
-    name: "Marceline T-Shirt",
-
-    price: 179,
-    oldPrice: 219,
-    currency: "MAD",
-
-    images: [
-      "/products/product-1.png",
-    ],
-
-    status: "available",
-
-    description:
-      "Premium oversized unisex T-shirt designed for everyday comfort. Made with heavyweight cotton and finished with high-quality printing.",
-
-    details: {
-      country: "Turkey",
-      material: "95% Premium Cotton, 5% Elastane",
-      fabricWeight: "320 GSM",
-      fit: "Oversized Unisex",
-      construction: "Double-Stitched",
-      color: "Black",
-    },
-
-    care: [
-      "Machine wash cold",
-      "Wash inside out",
-      "Do not bleach",
-      "Do not tumble dry",
-    ],
-
-    sizes: {
-      XS: {
-        shoulder: 50,
-        chest: 51,
-        length: 66,
-        sleeve: 21,
-      },
-
-      S: {
-        shoulder: 52,
-        chest: 54,
-        length: 68,
-        sleeve: 22,
-      },
-
-      M: {
-        shoulder: 54,
-        chest: 57,
-        length: 71,
-        sleeve: 23,
-      },
-
-      L: {
-        shoulder: 57,
-        chest: 60,
-        length: 74,
-        sleeve: 24,
-      },
-
-      XL: {
-        shoulder: 59,
-        chest: 63,
-        length: 76,
-        sleeve: 25,
-      },
-    },
-  },
-
-  {
-    id: "2",
-
-    name: "Black Fit Top",
-
-    images: [
-      "/products/product-2.png",
-    ],
-
-    status: "coming-soon",
-
-    description:
-      "A premium fitted black top featuring the exclusive 'Hot Girls Speak Moroccan' statement print. Designed for women who embrace confidence, comfort and individuality. Launching soon.",
-  },
-];
+      </div>
+    </section>
+  );
+}

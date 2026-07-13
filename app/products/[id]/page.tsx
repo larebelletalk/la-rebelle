@@ -75,55 +75,62 @@ export default async function ProductPage({ params }: Props) {
           <p className="mt-10 text-neutral-400 leading-8">
             {product.description}
           </p>
-                    {product.status === "available" && (
-            <>
-              <SizeSelector sizes={product.sizes} />
 
-              <div className="mt-12">
+          {product.status === "available" && (
+            <>
+              <SizeSelector sizes={product.sizes!} />
+                            <div className="mt-12">
+
                 <h2 className="text-xl font-semibold mb-4">
                   Materials & Craftsmanship
                 </h2>
 
                 <div className="space-y-3 text-neutral-300">
+
                   <p>
-                    <strong>Country:</strong> {product.details.country}
+                    <strong>Country:</strong> {product.details!.country}
                   </p>
 
                   <p>
-                    <strong>Material:</strong> {product.details.material}
+                    <strong>Material:</strong> {product.details!.material}
                   </p>
 
                   <p>
-                    <strong>Fabric Weight:</strong> {product.details.fabricWeight}
+                    <strong>Fabric Weight:</strong> {product.details!.fabricWeight}
                   </p>
 
                   <p>
-                    <strong>Construction:</strong> {product.details.construction}
+                    <strong>Construction:</strong> {product.details!.construction}
                   </p>
 
                   <p>
-                    <strong>Fit:</strong> {product.details.fit}
+                    <strong>Fit:</strong> {product.details!.fit}
                   </p>
 
                   <p>
-                    <strong>Color:</strong> {product.details.color}
+                    <strong>Color:</strong> {product.details!.color}
                   </p>
+
                 </div>
+
               </div>
 
               <div className="mt-12">
+
                 <h2 className="text-xl font-semibold mb-4">
                   Care Instructions
                 </h2>
 
                 <ul className="space-y-2 text-neutral-400">
-                  {product.care.map((item) => (
+
+                  {product.care!.map((item) => (
                     <li key={item}>• {item}</li>
                   ))}
-                </ul>
-              </div>
 
-              <a
+                </ul>
+
+              </div>
+                            <a
                 href="https://wa.me/212722110867"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -131,6 +138,7 @@ export default async function ProductPage({ params }: Props) {
               >
                 Order via WhatsApp
               </a>
+
             </>
           )}
 
