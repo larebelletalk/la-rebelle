@@ -2,7 +2,7 @@ export default function House() {
   return (
     <section
       id="house"
-      className="bg-[#0A0A0A] text-white py-32 px-6"
+      className="bg-[#0A0A0A] text-white py-24 px-6"
     >
       <div className="max-w-4xl mx-auto text-center">
 
