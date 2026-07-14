@@ -20,7 +20,7 @@ export default function Hero() {
         </p>
 
         <a
-  href="#collection"
+  href="/collection"
   className="inline-block mt-12 border border-white px-10 py-4 uppercase tracking-[0.3em]
   hover:bg-white hover:text-black transition-all duration-500"
 >
