@@ -23,7 +23,7 @@ export default async function ProductPage({ params }: Props) {
 
       <div className="max-w-6xl mx-auto mb-10">
         <Link
-          href="/#collection"
+          href="/collection"
           className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition"
         >
           ← Back to Collection

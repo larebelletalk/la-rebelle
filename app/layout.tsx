@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import { LanguageProvider } from "./context/languageContext";
 import { Geist, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
@@ -19,19 +21,23 @@ export const metadata: Metadata = {
     "Luxury womenswear and carefully selected unisex essentials.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+type RootLayoutProps = {
+  children: ReactNode;
+};
+
+export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html
       lang="en"
       className={`${geist.variable} ${cormorant.variable}`}
     >
       <body className="bg-[#0A0A0A] text-white antialiased">
-        {children}
-      </body>
+
+  <LanguageProvider>
+    {children}
+  </LanguageProvider>
+
+</body>
     </html>
   );
 }

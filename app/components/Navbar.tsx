@@ -1,61 +1,78 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md">
 
       <div className="flex items-center justify-between px-6 md:px-10 py-6">
 
-        <h1 className="text-white tracking-[0.3em] text-sm md:text-base">
+        <Link
+          href="/"
+          className="text-white tracking-[0.3em] text-sm md:text-base"
+        >
           LA REBELLE
-        </h1>
+        </Link>
 
-        {/* Desktop Menu */}
+        {/* Desktop */}
 
-        <nav className="hidden md:flex gap-10 text-xs tracking-[0.25em] uppercase text-neutral-400">
+        <nav className="hidden md:flex gap-10 text-xs uppercase tracking-[0.25em] text-neutral-400">
 
-          <a href="#collection">Collection</a>
+          <Link href="/collection">
+            Collection
+          </Link>
 
-          <a href="#house">The House</a>
+          <Link href="/about">
+            The House
+          </Link>
 
-          <a href="#contact">Contact</a>
+          <Link href="/contact">
+            Contact
+          </Link>
 
         </nav>
 
-        {/* Mobile Button */}
+        {/* Mobile */}
 
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-white text-3xl"
         >
-          ☰
+          {open ? "✕" : "☰"}
         </button>
 
       </div>
 
-      {/* Mobile Menu */}
-
       {open && (
 
-        <div className="md:hidden bg-black/95 backdrop-blur-sm">
+        <div className="md:hidden bg-[#0A0A0A] border-t border-neutral-800">
 
           <nav className="flex flex-col items-center gap-8 py-10 uppercase tracking-[0.25em] text-sm text-white">
 
-            <a href="#collection" onClick={() => setOpen(false)}>
+            <Link
+              href="/collection"
+              onClick={() => setOpen(false)}
+            >
               Collection
-            </a>
+            </Link>
 
-            <a href="#house" onClick={() => setOpen(false)}>
+            <Link
+              href="/about"
+              onClick={() => setOpen(false)}
+            >
               The House
-            </a>
+            </Link>
 
-            <a href="#contact" onClick={() => setOpen(false)}>
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+            >
               Contact
-            </a>
+            </Link>
 
           </nav>
 
